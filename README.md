@@ -17,6 +17,16 @@ selected by the noise level of the audio-mix:
 
 ![SepGen overview](docs/overview.png)
 
+## Roadmap
+
+- [x] Separation inference (`separate.py`)
+- [x] Generation inference (`generate.py`)
+- [x] Training code and configs for both checkpoints (`train.py`, `configs/`)
+- [x] Checkpoints `sep-12k` and `gen-3k` on Hugging Face
+- [ ] Localization and new-camera re-rendering, as in the demo videos
+- [ ] Training dataset (precomputed latents and captions), to be released soon
+- [ ] Evaluation benchmarks and scoring scripts
+
 ## Setup
 
 Requirements: a CUDA GPU with 48 GB (all experiments ran on one RTX A6000), Linux, ffmpeg.
@@ -95,7 +105,8 @@ python train.py configs/train_gen3k.yaml --data-root /path/to/precomputed_train 
     --init-checkpoint sep-12k --stop-at-step 3000
 ```
 
-The training set is not distributed; [docs/DATA.md](docs/DATA.md) gives the precomputed format.
+The training dataset will be released soon; [docs/DATA.md](docs/DATA.md) gives its precomputed
+format.
 - **Setup:** one RTX A6000, batch size 1, AdamW at 1e-4 with linear decay. The base model is
   frozen and int8-quantized.
 - **`sep-12k`:** about 42 h. The paper's run was resumed once, at step 2000, with the optimizer
