@@ -23,7 +23,7 @@ selected by the noise level of the audio-mix:
 - [x] Generation inference (`generate.py`)
 - [x] Training code and configs for both checkpoints (`train.py`, `configs/`)
 - [x] Checkpoints `sep-12k` and `gen-3k` on Hugging Face
-- [ ] Localization and new-camera re-rendering, as in the demo videos
+- [x] Localization and new-camera re-rendering, as in the demo videos (`demo/`)
 - [ ] Training dataset (precomputed latents and captions), to be released soon
 - [ ] Evaluation benchmarks and scoring scripts
 
@@ -97,6 +97,21 @@ cell:
 
 `--stock` renders the same prompts with SepGen off.
 
+## Demo: localization and new-camera re-rendering
+
+`demo/` reproduces the moving-camera videos on the project page:
+1. SepGen separates and localizes the two sources on the original clip.
+2. LTX-2.3 with the CrossView-Warp IC-LoRA re-renders the clip from an authored moving camera,
+   guided by a MoGe-2 depth warp.
+3. Each separated source is re-spatialized for that camera (1/r gain, free-field cardioid stereo).
+
+Setup, weights, stages and limitations are in [demo/README.md](demo/README.md).
+
+```bash
+bash demo/setup_demo.sh && bash demo/download_demo_weights.sh
+bash demo/run_demo.sh <clip.mp4> <mix.wav|-> <scene> <stem0> <stem1> <seed> <out_dir> [--trajectory orbit_rise]
+```
+
 ## Training
 
 ```bash
@@ -125,6 +140,8 @@ format.
 | `sepgen/stempipe/` | generation pipeline on the upstream two-stage LTX-2.5 pipeline |
 | `sepgen/nag_attn2.py` | Cross-Stem Attention Guidance (NAG with the sibling caption as negative) |
 | `configs/` | training configs of both checkpoints and the generation config |
+| `demo/` | localization and new-camera re-rendering demo (depth, warp guide, LTX-2.3 render, 3-D lift, audio) |
+| `sepgen/localize/` | attention capture hooks and the localization readout |
 
 ## Citation
 
@@ -143,3 +160,12 @@ SepGen builds on LTX-2.5 and is a Derivative of LTX-2.x under the
 [LTX-2.x Community License Agreement](LICENSE.md). The code and the released weights are
 distributed under that agreement, including its use-based restrictions (Attachment A).
 `sepgen/stemgen/ltx25_validation_sampler.py` is modified from the LTX-2 trainer.
+
+The demo (`demo/`) also uses:
+- LTX-2.3, under the LTX-2 Community License;
+- the CrossView-Warp v2 IC-LoRA by Cseti (Cseti/LTX2.3-22B_IC-LoRA-CrossView-Warp_v2, Apache-2.0;
+  its training renders used CC-BY assets credited in that repository's ATTRIBUTION.md);
+- `demo/crossview_warp.py`, ported from ComfyUI-CrossViewWarp
+  (github.com/cseti007/ComfyUI-CrossViewWarp, commit 3266a83, Apache-2.0);
+- MoGe-2 (microsoft/MoGe code and Ruicheng/moge-2-vitl-normal weights, MIT);
+- Gemma-3, under the Gemma terms of use.

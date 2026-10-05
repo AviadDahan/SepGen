@@ -4,3 +4,6 @@ LTX-2/
 activate.sh
 __pycache__/
 *.pyc
+LTX-2.3/
+envs/
+demo/demo_env.sh

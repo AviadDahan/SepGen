@@ -1,0 +1,9 @@
+{
+ "video": "examples/demo/lawn_mower.mp4",
+ "mix_wav": "examples/demo/lawn_mower_mix.wav",
+ "scene_prompt": "Style: realistic, cinematic. In a suburban backyard, a lawn mower on the right side of the frame roars back and forth across the grass, loud and continuous, while a woman stands on the left side of the frame facing the camera. Over the sound of the lawn mower, the woman says in an amused exasperated voice, \"I can barely hear myself think out here!\" The clear female voice and the lawn mower are heard together at the same time, and the lawn mower keeps sounding after the voice stops. Quiet outdoor ambience sits underneath. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+ "stem0_prompt": "The woman says in an amused exasperated voice, \"I can barely hear myself think out here!\", alone, no other sound audible.",
+ "stem1_prompt": "A lawn mower roars back and forth across the grass, alone, no voice audible.",
+ "render_seed": 90115,
+ "trajectory": "orbit_rise"
+}

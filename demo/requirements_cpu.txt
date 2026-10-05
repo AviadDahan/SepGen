@@ -1,0 +1,8 @@
+# CPU environment for the 3-D lift, the audio and the mux. numpy 1.26 / scipy 1.14 are the versions
+# the demo clips were made with; numpy 2.x ships a different OpenBLAS, which moves the Kalman/RTS
+# tracks by ~1e-14 m (the rendered audio stays bit-identical).
+cffi==2.1.1
+numpy==1.26.0
+pycparser==3.0
+scipy==1.14.1
+soundfile==0.13.1

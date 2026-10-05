@@ -1,0 +1,26 @@
+{
+ "note": "GT-free channel-selection statistics (mean, std per stability signal) and the self-flag threshold, fitted once on 10 held-aside training clips (20 stems) in the separation regime; frozen.",
+ "stats": {
+  "jitter": [
+   1.3825605000087138,
+   0.6058253118032917
+  ],
+  "meas_sigma": [
+   4.697822488898782,
+   1.0942725152322947
+  ],
+  "tconsist": [
+   0.33581063796411226,
+   0.14451534923357554
+  ]
+ },
+ "flag_z": -0.23844926033643335,
+ "fit_report": {
+  "n_stems": 20,
+  "n_fail": 5,
+  "auc": 0.9466666666666667,
+  "f1": 0.9090909090909091,
+  "selected_gmed_mean": 0.62625,
+  "stem_ok": 0.75
+ }
+}
