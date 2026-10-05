@@ -10,9 +10,8 @@
   <!-- ARXIV: replace with <a href="https://arxiv.org/abs/ID"><img src="https://img.shields.io/badge/arXiv-ID-b31b1b.svg" alt="arXiv"></a> -->
   <img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b.svg" alt="arXiv">
   <a href="https://sepgen.github.io/"><img src="https://img.shields.io/badge/Project-Page-blue.svg" alt="Project Page"></a>
-  <a href="https://huggingface.co/AviadDahan/SepGen-Separation"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Separation_Model-yellow.svg" alt="Separation model"></a>
-  <a href="https://huggingface.co/AviadDahan/SepGen-Generation"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Generation_Model-yellow.svg" alt="Generation model"></a>
-  <img src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset_(coming_soon)-orange.svg" alt="Dataset (coming soon)">
+  <a href="https://huggingface.co/collections/AviadDahan/sepgen-6ac3e516dd6528007ad32352"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow.svg" alt="Models"></a>
+  <a href="https://huggingface.co/datasets/AviadDahan/SepGen-Dataset"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset-orange.svg" alt="Dataset"></a>
 </p>
 
 SepGen extends a pretrained audio-video generator (LTX-2.5) to emit the video, the audio-mix, and
@@ -32,7 +31,8 @@ selected by the noise level of the audio-mix:
 - [x] Training code and configs for both checkpoints (`train.py`, `configs/`)
 - [x] Checkpoints `sep-12k` and `gen-3k` on Hugging Face
 - [x] Localization and new-camera re-rendering, as in the demo videos (`demo/`)
-- [ ] Training dataset (precomputed latents and captions), to be released soon
+- [x] Training-set manifests: captions, source boxes and provenance ([SepGen-Dataset](https://huggingface.co/datasets/AviadDahan/SepGen-Dataset))
+- [ ] Precomputed training latents and text features, to be released soon
 - [ ] Evaluation benchmarks and scoring scripts
 
 ## Setup
@@ -128,8 +128,9 @@ python train.py configs/train_gen3k.yaml --data-root /path/to/precomputed_train 
     --init-checkpoint sep-12k --stop-at-step 3000
 ```
 
-The training dataset will be released soon; [docs/DATA.md](docs/DATA.md) gives its precomputed
-format.
+The training-set manifests (captions, source boxes and provenance for all 4,843 segments) are on
+[Hugging Face](https://huggingface.co/datasets/AviadDahan/SepGen-Dataset); the precomputed latents and
+text features will be released soon. [docs/DATA.md](docs/DATA.md) gives the precomputed format.
 - **Setup:** one RTX A6000, batch size 1, AdamW at 1e-4 with linear decay. The base model is
   frozen and int8-quantized.
 - **`sep-12k`:** about 42 h. The paper's run was resumed once, at step 2000, with the optimizer

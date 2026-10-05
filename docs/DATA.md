@@ -2,14 +2,17 @@
 
 `train.py` reads a precomputed dataset: one `.pt` file per training segment in each of the
 directories below, all under `data.preprocessed_data_root`. A segment is used only if it is
-present in every directory. The paper's set (to be released soon) has 4,843 two-source segments of 113 frames at 25 fps,
+present in every directory. The paper's set has 4,843 two-source segments of 113 frames at 25 fps,
 encoded at 768×512. They come from four families:
 - CelebV-HQ talking-head pairs;
 - URMP two-instrument recordings;
 - generated two-source clips;
 - VGGSound / MUSIC-21 composites.
 
-Each audio-mix is the sum of its two sources.
+Each audio-mix is the sum of its two sources. Its manifests (captions in every register, source boxes,
+and where each source comes from) are at
+[AviadDahan/SepGen-Dataset](https://huggingface.co/datasets/AviadDahan/SepGen-Dataset); the precomputed
+latents and text features will be released soon.
 
 Latents are produced by the LTX-2.5 encoders, and text features by the LTX-2.5 text encoder
 (Gemma-4) before the embeddings connector. The upstream `ltx_trainer` preprocessing scripts
