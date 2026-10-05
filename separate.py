@@ -39,23 +39,11 @@ import yaml
 REPO = Path(__file__).resolve().parent
 sys.path.insert(0, str(REPO / "sepgen"))
 
+from checkpoints import resolve_checkpoint  # noqa: E402
+
 AUDIO_TOKENS_PER_SECOND = 25.0
 VAE_TEMPORAL_STRIDE = 8    # video frames per latent frame
 VAE_SPATIAL_STRIDE = 32    # pixels per latent cell
-HF_REPO = "AviadDahan/SepGen"
-NAMED_CHECKPOINTS = {"sep-12k": "sep-12k/lora_weights.safetensors",
-                     "gen-3k": "gen-3k/lora_weights.safetensors"}
-
-
-def resolve_checkpoint(name_or_path: str) -> Path:
-    """`sep-12k` / `gen-3k` -> downloaded from the Hugging Face repo; anything else is a path."""
-    if name_or_path in NAMED_CHECKPOINTS:
-        from huggingface_hub import hf_hub_download
-        return Path(hf_hub_download(HF_REPO, NAMED_CHECKPOINTS[name_or_path]))
-    path = Path(name_or_path)
-    if not path.is_file():
-        raise SystemExit(f"checkpoint not found: {path}")
-    return path
 
 
 def load_config(path: Path, models_dir: Path) -> dict:

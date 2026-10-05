@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Download the LTX-2.5 components SepGen uses (Hugging Face Lightricks/LTX-2.5; accept its license
-# on the model page and `hf auth login` first) and the two SepGen LoRAs (AviadDahan/SepGen).
+# on the model page and `hf auth login` first) and the two SepGen LoRAs
+# (AviadDahan/SepGen-Separation, AviadDahan/SepGen-Generation).
 #
 #   bash download_weights.sh                 # into ./models/ltx2.5 (about 72 GB)
 #   SEPGEN_MODELS=/data/ltx2.5 bash download_weights.sh
@@ -23,6 +24,7 @@ FILES=(
 hf download Lightricks/LTX-2.5 "${FILES[@]}" --local-dir "${MODELS}"
 
 # SepGen LoRAs (also fetched on demand by --checkpoint sep-12k / gen-3k).
-hf download AviadDahan/SepGen sep-12k/lora_weights.safetensors gen-3k/lora_weights.safetensors
+hf download AviadDahan/SepGen-Separation   # sep-12k
+hf download AviadDahan/SepGen-Generation   # gen-3k
 
 echo "[download] LTX-2.5 weights in ${MODELS}"

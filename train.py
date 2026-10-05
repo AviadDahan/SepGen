@@ -56,12 +56,8 @@ def main():
     if args.output_dir is not None:
         raw["output_dir"] = str(args.output_dir)
     if args.init_checkpoint is not None:
-        if args.init_checkpoint in ("sep-12k", "gen-3k"):
-            from huggingface_hub import hf_hub_download
-            raw["model"]["load_checkpoint"] = hf_hub_download(
-                "AviadDahan/SepGen", f"{args.init_checkpoint}/lora_weights.safetensors")
-        else:
-            raw["model"]["load_checkpoint"] = args.init_checkpoint
+        from checkpoints import resolve_checkpoint
+        raw["model"]["load_checkpoint"] = str(resolve_checkpoint(args.init_checkpoint))
     strategy_raw = raw.pop("joint_stem", {})
     raw.pop("joint_stem_validation", None)
 

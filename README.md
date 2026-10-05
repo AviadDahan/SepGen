@@ -5,7 +5,7 @@
 
 <sup>1</sup>Tel Aviv University, <sup>2</sup>Google  ·  <sup>\*</sup>Equal contribution
 
-[Paper](ARXIV_URL) · [Project page](https://sepgen.github.io/) · [Weights](https://huggingface.co/AviadDahan/SepGen)
+[Paper](ARXIV_URL) · [Project page](https://sepgen.github.io/) · [Weights](https://huggingface.co/collections/AviadDahan/sepgen-6ac3e516dd6528007ad32352)
 
 SepGen extends a pretrained audio-video generator (LTX-2.5) to emit the video, the audio-mix, and
 one waveform per captioned source in a single sampling run. The same weights run in two modes,
@@ -42,14 +42,14 @@ Use `SEPGEN_MODELS=/path/to/ltx2.5` (or `--models-dir`) to keep the weights else
 
 ## Checkpoints
 
-| Name | Training | Use |
-|---|---|---|
-| `sep-12k` | 12,000 separation steps (audio-mix always clean) | separation |
-| `gen-3k` | `sep-12k` + 3,000 steps with noisy audio-mixes | generation and separation |
+| Name | Hugging Face | Training | Use |
+|---|---|---|---|
+| `sep-12k` | [AviadDahan/SepGen-Separation](https://huggingface.co/AviadDahan/SepGen-Separation) | 12,000 separation steps (audio-mix always clean) | separation |
+| `gen-3k` | [AviadDahan/SepGen-Generation](https://huggingface.co/AviadDahan/SepGen-Generation) | `sep-12k` + 3,000 steps with noisy audio-mixes | generation and separation |
 
 Both are LoRA adapters (rank 128, 327M parameters) on the audio stream of LTX-2.5 22B dev.
-The scripts download them on demand from [AviadDahan/SepGen](https://huggingface.co/AviadDahan/SepGen)
-when given `--checkpoint sep-12k` / `gen-3k`, or take a local path.
+`--checkpoint sep-12k` / `gen-3k` downloads them on first use (`sepgen/checkpoints.py`); a local
+path also works.
 
 ## Separation
 

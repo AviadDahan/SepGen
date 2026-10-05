@@ -44,22 +44,9 @@ from stempipe.artifacts import (  # noqa: E402
 )
 from stempipe.stem_config import StemConfig  # noqa: E402
 from stempipe.stem_two_stages_hq import StemTwoStagesHQPipeline  # noqa: E402
+from checkpoints import resolve_checkpoint  # noqa: E402
 
 logger = logging.getLogger(__name__)
-HF_REPO = "AviadDahan/SepGen"
-NAMED_CHECKPOINTS = {"sep-12k": "sep-12k/lora_weights.safetensors",
-                     "gen-3k": "gen-3k/lora_weights.safetensors"}
-
-
-def resolve_checkpoint(name_or_path: str) -> str:
-    if name_or_path in NAMED_CHECKPOINTS:
-        from huggingface_hub import hf_hub_download
-        return hf_hub_download(HF_REPO, NAMED_CHECKPOINTS[name_or_path])
-    if not Path(name_or_path).is_file():
-        raise SystemExit(f"checkpoint not found: {name_or_path}")
-    return name_or_path
-
-
 def guider_params(section: dict | None, fallback: MultiModalGuiderParams) -> MultiModalGuiderParams:
     return replace(fallback, **section) if section else fallback
 
@@ -111,7 +98,7 @@ def generate(cfg: dict, cells: list[dict], out_dir: Path, *, stock: bool = False
         stem_transformer, stem_builder = build_stem_transformer(
             model_paths=model_paths, distilled_lora=distilled,
             distilled_lora_strength=run_cfg["distilled_strength_stage_1"],
-            adapter_checkpoint=resolve_checkpoint(models["adapter_checkpoint"]),
+            adapter_checkpoint=str(resolve_checkpoint(models["adapter_checkpoint"])),
             adapter_rank=models.get("adapter_rank", 128),
             adapter_alpha=models.get("adapter_alpha", 128),
             stem=probe,
