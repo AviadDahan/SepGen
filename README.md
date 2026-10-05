@@ -1,11 +1,19 @@
-# SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model
+<h2 align="center">SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model</h2>
 
-**Aviad Dahan**<sup>1\*</sup>, **Rajaei Khatib**<sup>1\*</sup>, **Yonatan Bitton**<sup>2</sup>,
-**Idan Szpektor**<sup>2</sup>, **Lior Wolf**<sup>1</sup>, **Raja Giryes**<sup>1</sup>
+<p align="center">
+  <b>Aviad Dahan</b><sup>1*</sup>, <b>Rajaei Khatib</b><sup>1*</sup>, <b>Yonatan Bitton</b><sup>2</sup>,
+  <b>Idan Szpektor</b><sup>2</sup>, <b>Lior Wolf</b><sup>1</sup>, <b>Raja Giryes</b><sup>1</sup><br>
+  <sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google &nbsp; <sup>*</sup>Equal contribution
+</p>
 
-<sup>1</sup>Tel Aviv University, <sup>2</sup>Google  ·  <sup>\*</sup>Equal contribution
-
-[Paper](ARXIV_URL) · [Project page](https://sepgen.github.io/) · [Weights](https://huggingface.co/collections/AviadDahan/sepgen-6ac3e516dd6528007ad32352)
+<p align="center">
+  <!-- ARXIV: replace with <a href="https://arxiv.org/abs/ID"><img src="https://img.shields.io/badge/arXiv-ID-b31b1b.svg" alt="arXiv"></a> -->
+  <img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b.svg" alt="arXiv">
+  <a href="https://sepgen.github.io/"><img src="https://img.shields.io/badge/Project-Page-blue.svg" alt="Project Page"></a>
+  <a href="https://huggingface.co/AviadDahan/SepGen-Separation"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Separation_Model-yellow.svg" alt="Separation model"></a>
+  <a href="https://huggingface.co/AviadDahan/SepGen-Generation"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Generation_Model-yellow.svg" alt="Generation model"></a>
+  <img src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset_(coming_soon)-orange.svg" alt="Dataset (coming soon)">
+</p>
 
 SepGen extends a pretrained audio-video generator (LTX-2.5) to emit the video, the audio-mix, and
 one waveform per captioned source in a single sampling run. The same weights run in two modes,
