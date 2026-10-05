@@ -1,0 +1,6 @@
+outputs/
+models/
+LTX-2/
+activate.sh
+__pycache__/
+*.pyc

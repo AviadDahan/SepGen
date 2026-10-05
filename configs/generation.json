@@ -1,0 +1,48 @@
+{
+  "models": {
+    "transformer": "${SEPGEN_MODELS}/diffusion_models/ltx-2.5-22b-dev-transformer-bf16.safetensors",
+    "text_encoder": "${SEPGEN_MODELS}/text_encoders/gemma4-12b-with-proj-ltx-2.5-bf16.safetensors",
+    "video_vae": "${SEPGEN_MODELS}/vae/ltx-2.5-video-vae-bf16.safetensors",
+    "audio_vae": "${SEPGEN_MODELS}/vae/ltx-2.5-audio-vae-bf16.safetensors",
+    "spatial_upsampler": "${SEPGEN_MODELS}/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+    "distilled_lora": "${SEPGEN_MODELS}/loras/ltx-2.5-22b-distilled-lora-450-bf16.safetensors",
+    "adapter_checkpoint": "gen-3k",
+    "adapter_rank": 128,
+    "adapter_alpha": 128
+  },
+  "run": {
+    "seed": 42,
+    "width": 1536,
+    "height": 1024,
+    "num_frames": 113,
+    "frame_rate": 25.0,
+    "num_inference_steps": 15,
+    "distilled_strength_stage_1": 0.25,
+    "distilled_strength_stage_2": 0.5,
+    "negative_prompt": "has_subtitles, has_blurbox, transition from black, transition to black, speech_ending_short, blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, poor lighting, flickering, motion blur, distorted proportions, unnatural skin tones, deformed facial features, asymmetrical face, missing facial features, extra limbs, disfigured hands, wrong hand count, artifacts around text, inconsistent perspective, camera shake, incorrect depth of field, background too sharp, background clutter, distracting reflections, harsh shadows, inconsistent lighting direction, color banding, cartoonish rendering, 3D CGI look, unrealistic materials, uncanny valley effect, incorrect ethnicity, wrong gender, exaggerated expressions, wrong gaze direction, mismatched lip sync, silent or muted audio, distorted voice, robotic voice, echo, background noise, off-sync audio, incorrect dialogue, added dialogue, repetitive speech, jittery movement, awkward pauses, incorrect timing, unnatural transitions, inconsistent framing, tilted camera, flat lighting, inconsistent tone, cinematic oversaturation, stylized filters, or AI artifacts, camera movement, camera pan, camera zoom, dolly, tracking shot, handheld"
+  },
+  "stem": {
+    "sampler": "res_2s",
+    "a2v_mode": "slice",
+    "stem_rescale": 0.7,
+    "stem_modality_scale": 1.0,
+    "per_span_stats": true,
+    "span_sibling": true,
+    "text_block_diagonal": true,
+    "trained_interface": {
+      "enabled": true,
+      "sigma_gate": 0.97,
+      "from_step": 12,
+      "sibling_negative": true
+    },
+    "nag": {
+      "scale": 2.0,
+      "tau": 2.5,
+      "alpha": 0.5
+    },
+    "beta": "diag:1.0:1.0:4",
+    "video_negative_prompt": null,
+    "mix_negative_prompt": null,
+    "stem_negative_prompts": []
+  }
+}

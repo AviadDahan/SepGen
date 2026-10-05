@@ -1,0 +1,65 @@
+[
+  {
+    "segment": "singing_with_instrument_1",
+    "seed": 95883,
+    "scene_prompt": "Style: realistic, cinematic. In a large open courtyard with its walls set well back, a woman singing softly in a breathy voice stands on the left side of the frame, singing \"quiet now, the day is done\", while a man playing a violin is on the right side and draws out a soaring melody. The voice and the violin sound together, both clearly audible. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. The only music is played live in the frame by the performers in view; there is no separate backing track.",
+    "stem_prompts": [
+      "A woman singing softly in a breathy voice sings \"quiet now, the day is done\".",
+      "A man playing a violin draws out a soaring melody."
+    ]
+  },
+  {
+    "segment": "speech_with_background_1",
+    "seed": 90475,
+    "scene_prompt": "Style: realistic, cinematic. At a construction site at the edge of a street, a jackhammer on the right side of the frame hammers the ground in loud bursts, loud and continuous, while a male engineer stands on the left side of the frame facing the camera. Over the sound of the jackhammer, the engineer says in a precise voice, \"The foundation passed inspection this morning.\" The clear male voice and the jackhammer are heard together at the same time, and the jackhammer keeps sounding after the voice stops. Quiet outdoor ambience sits underneath. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+    "stem_prompts": [
+      "The male engineer says in a precise voice, \"The foundation passed inspection this morning.\".",
+      "A jackhammer hammers the ground in loud bursts."
+    ]
+  },
+  {
+    "segment": "static_pair_1",
+    "seed": 80010,
+    "scene_prompt": "A blacksmith hammers rhythmically on an anvil on the left side of the frame while a church bell rings steadily in a tower on the right side. no camera movement, still shot",
+    "stem_prompts": [
+      "A blacksmith hammers rhythmically on an anvil on the left side of the frame.",
+      "A church bell rings steadily in a tower on the right side."
+    ]
+  },
+  {
+    "segment": "turn_taking_1",
+    "seed": 90922,
+    "scene_prompt": "Style: realistic, cinematic. At the front steps of a brick apartment building, a female locksmith stands on the left and a female landlord stands on the right, facing each other. The locksmith speaks first in a patient methodical voice, saying, \"The new keys cut in minutes.\" and then falls silent; the landlord answers in a gruff voice, \"Make me three copies, please.\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+    "stem_prompts": [
+      "The female locksmith says in a patient methodical voice, \"The new keys cut in minutes.\".",
+      "The female landlord says in a gruff voice, \"Make me three copies, please.\"."
+    ]
+  },
+  {
+    "segment": "turn_taking_2",
+    "seed": 90953,
+    "scene_prompt": "Style: realistic, cinematic. At the sculpture garden of a museum, a female museum curator stands on the left and a female donor stands on the right, facing each other. The museum curator speaks first in a refined careful voice, saying, \"This statue is over two centuries old.\" and then falls silent; the donor answers in a proud voice, \"It stood in our courtyard for decades!\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+    "stem_prompts": [
+      "The female museum curator says in a refined careful voice, \"This statue is over two centuries old.\".",
+      "The female donor says in a proud voice, \"It stood in our courtyard for decades!\"."
+    ]
+  },
+  {
+    "segment": "turn_taking_3",
+    "seed": 90978,
+    "scene_prompt": "Style: realistic, cinematic. At the sculpture garden of a museum, a male museum curator stands on the left and a male donor stands on the right, facing each other. The museum curator speaks first in a refined careful voice, saying, \"Opening night is next month.\" and then falls silent; the donor answers in a proud voice, \"I would not miss it.\" The two speak strictly one at a time, never together, two distinct male voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+    "stem_prompts": [
+      "The male museum curator says in a refined careful voice, \"Opening night is next month.\".",
+      "The male donor says in a proud voice, \"I would not miss it.\"."
+    ]
+  },
+  {
+    "segment": "turn_taking_4",
+    "seed": 90249,
+    "scene_prompt": "Style: realistic, cinematic. At a harbor dock, a female fisherman stands on the left and a female dockworker stands on the right, facing each other. The fisherman speaks first in a weathered loud voice, saying, \"Mind the ropes on the pier.\" and then falls silent; the dockworker answers in a booming cheerful voice, \"All tied down and secure.\" The two speak strictly one at a time, never together, two distinct female voices, clearly different from each other, in English. Quiet outdoor ambience sits under the speech. The shot is a static wide shot; the camera is locked off and does not move. The scene is wide and open, with clear depth stretching far into the distance behind them. There is no background music.",
+    "stem_prompts": [
+      "The female fisherman says in a weathered loud voice, \"Mind the ropes on the pier.\".",
+      "The female dockworker says in a booming cheerful voice, \"All tied down and secure.\"."
+    ]
+  }
+]

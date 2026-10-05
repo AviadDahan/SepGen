@@ -1,0 +1,10 @@
+[
+  {
+    "name": "blacksmith_bell",
+    "video": "examples/blacksmith_bell.mp4",
+    "scene_prompt": "A blacksmith hammers rhythmically on an anvil on the left side of the frame while a church bell rings steadily in a tower on the right side. no camera movement, still shot",
+    "stem0_prompt": "A blacksmith hammers rhythmically on an anvil on the left side of the frame.",
+    "stem1_prompt": "A church bell rings steadily in a tower on the right side.",
+    "mix_wav": null
+  }
+]

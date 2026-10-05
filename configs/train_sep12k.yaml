@@ -1,0 +1,128 @@
+# SepGen separation checkpoint (sep-12k): 12,000 steps of separation training.
+# The audio-mix is always presented clean (sep_pattern_p 1.0); the loss is on the two stems only.
+# One RTX A6000 (48 GB), about 42 h. The paper's run was resumed once, at step 2000, with the
+# optimizer state reset; the LR schedule and step counter continued.
+#   python train.py configs/train_sep12k.yaml
+acceleration:
+  load_text_encoder_in_8bit: false
+  mixed_precision_mode: bf16
+  offload_optimizer_during_validation: true
+  quantization: int8-quanto
+checkpoints:
+  interval: 250
+  keep_last_n: -1
+  no_resume: false
+  precision: bfloat16
+data:
+  num_dataloader_workers: 2
+  preprocessed_data_root: data/precomputed_train
+flow_matching:
+  timestep_sampling_mode: shifted_logit_normal
+  timestep_sampling_params: {}
+hub:
+  hub_model_id: null
+  push_to_hub: false
+joint_stem:
+  a2v_mix_only: true
+  first_frame_conditioning_p: 0.0
+  frozen_mix_lora: true
+  include_mix: true
+  mix_lead_alpha: 1.0
+  mix_loss_weight: 0.0
+  mix_sigma_mode: independent
+  mix_span_energy_weight: 0.0
+  num_stems: 2
+  partition_loss_weight: 0.0
+  per_source_energy_weight: 0.0
+  positional_conditions_suffix: ''
+  positional_prompt_p: 0.0
+  ref_time_offset: 0.0
+  register_avail_dir: register_avail
+  register_mix:
+    ? ''
+    : 1
+    _pos: 1
+    _short: 1
+  rollout_training: false
+  sep_pattern_p: 1.0
+  span_attention_sibling: true
+  span_attention_topology: mix_protected
+  stem_audio_conditions_dir_prefix: conditions_stem_audio
+  video_loss_weight: 0.0
+  video_sigma_zero: false
+  positional_spatial_mask: true
+  positional_spatial_mask_eps: 1.0e-06
+joint_stem_validation:
+  dev_guidance:
+    audio_cfg_scale: 7.0
+    modality_scale: 1.0
+    rescale_scale: 0.7
+    stg_scale: 0.0
+    video_cfg_scale: 3.0
+lora:
+  alpha: 128
+  dropout: 0.0
+  rank: 128
+  target_modules:
+  - audio_attn1.to_q
+  - audio_attn1.to_k
+  - audio_attn1.to_v
+  - audio_attn1.to_out.0
+  - audio_attn2.to_q
+  - audio_attn2.to_out.0
+  - video_to_audio_attn.to_q
+  - video_to_audio_attn.to_out.0
+  - audio_ff.net.0.proj
+  - audio_ff.net.2
+model:
+  audio_vae_path: ${SEPGEN_MODELS}/vae/ltx-2.5-audio-vae-bf16.safetensors
+  load_checkpoint: null
+  model_path: ${SEPGEN_MODELS}/diffusion_models/ltx-2.5-22b-dev-transformer-bf16.safetensors
+  text_encoder_path: ${SEPGEN_MODELS}/text_encoders/gemma4-12b-with-proj-ltx-2.5-bf16.safetensors
+  training_mode: lora
+  video_vae_path: ${SEPGEN_MODELS}/vae/ltx-2.5-video-vae-bf16.safetensors
+optimization:
+  batch_size: 1
+  enable_gradient_checkpointing: true
+  gradient_accumulation_steps: 1
+  learning_rate: 0.0001
+  max_grad_norm: 1.0
+  optimizer_type: adamw
+  scheduler_params: {}
+  scheduler_type: linear
+  steps: 12000
+output_dir: outputs/sep-12k
+seed: 42
+training_strategy:
+  audio_latents_dir: audio_latents_mix
+  first_frame_conditioning_p: 0.0
+  name: text_to_video
+  with_audio: true
+validation:
+  audio_cfg_scale: 7.0
+  audio_modality_guidance_scale: 1.0
+  audio_stg_scale: 0.0
+  frame_rate: 25.0
+  generate_audio: true
+  guidance_rescale: 0.7
+  inference_steps: 30
+  interval: null
+  negative_prompt: worst quality, inconsistent motion, blurry, jittery, distorted
+  seed: 42
+  skip_initial_validation: false
+  stg_blocks:
+  - 28
+  video_cfg_scale: 3.0
+  video_dims:
+  - 768
+  - 512
+  - 113
+  video_modality_guidance_scale: 1.0
+  video_stg_scale: 0.0
+wandb:
+  enabled: false
+  entity: null
+  project: sepgen
+  log_validation_videos: false
+  tags:
+  - sep-12k
