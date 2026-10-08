@@ -1,9 +1,9 @@
 <h2 align="center">SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model</h2>
 
 <p align="center">
-  <b>Aviad Dahan</b><sup>1*</sup>, <b>Rajaei Khatib</b><sup>1*</sup>, <b>Yonatan Bitton</b><sup>2</sup>,
+  <b>Aviad Dahan</b><sup>1</sup>, <b>Rajaei Khatib</b><sup>1</sup>, <b>Yonatan Bitton</b><sup>2</sup>,
   <b>Idan Szpektor</b><sup>2</sup>, <b>Lior Wolf</b><sup>1</sup>, <b>Raja Giryes</b><sup>1</sup><br>
-  <sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google &nbsp; <sup>*</sup>Equal contribution
+  <sup>1</sup>Tel Aviv University &nbsp; <sup>2</sup>Google
 </p>
 
 <p align="center">
