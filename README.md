@@ -7,8 +7,7 @@
 </p>
 
 <p align="center">
-  <!-- ARXIV: replace with <a href="https://arxiv.org/abs/ID"><img src="https://img.shields.io/badge/arXiv-ID-b31b1b.svg" alt="arXiv"></a> -->
-  <img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b.svg" alt="arXiv">
+  <a href="https://arxiv.org/abs/2610.11361"><img src="https://img.shields.io/badge/arXiv-2610.11361-b31b1b.svg" alt="arXiv"></a>
   <a href="https://sepgen.github.io/"><img src="https://img.shields.io/badge/Project-Page-blue.svg" alt="Project Page"></a>
   <a href="https://huggingface.co/collections/AviadDahan/sepgen-6ac3e516dd6528007ad32352"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Models-yellow.svg" alt="Models"></a>
   <a href="https://huggingface.co/datasets/AviadDahan/SepGen-Dataset"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Dataset-orange.svg" alt="Dataset"></a>
@@ -205,7 +204,7 @@ and it downloads on first use; a path to a local file also works.
 @article{dahan2026sepgen,
   title   = {SepGen: Multi-Stem Audio-Video Separation and Generation in a Single Model},
   author  = {Dahan, Aviad and Khatib, Rajaei and Bitton, Yonatan and Szpektor, Idan and Wolf, Lior and Giryes, Raja},
-  journal = {arXiv preprint ARXIV_ID},
+  journal = {arXiv preprint arXiv:2610.11361},
   year    = {2026}
 }
 ```
